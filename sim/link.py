@@ -1,8 +1,6 @@
-"""Link bütçesi, SINR, kapsama ve throughput."""
 import numpy as np
 from sim.propagation import path_loss_map_db
 
-# ---- Sistem parametreleri (istediğiniz gibi değiştirebilirsiniz) ----
 F_HZ = 900e6            # frekans
 TX_POWER_DBM = 30.0     # verici gücü
 TX_GAIN_DB = 3.0        # verici anten kazancı

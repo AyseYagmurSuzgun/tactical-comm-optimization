@@ -1,6 +1,6 @@
 """Sentetik arazi üretimi."""
 import numpy as np
-from scipy.ndimage import gaussian_filter
+from scipy.ndimage import gaussian_filter, map_coordinates
 
 
 def generate_elevation(n=100, n_hills=12, max_height=150.0, seed=0):
@@ -21,3 +21,13 @@ def generate_elevation(n=100, n_hills=12, max_height=150.0, seed=0):
     # 0 - max_height aralığına ölçekle
     elev = (elev - elev.min()) / (elev.max() - elev.min()) * max_height
     return elev
+
+def sample_height(elev, res, x, y):
+    """(x, y) metre koordinatlarındaki yüksekliği (m) hesaplar.
+    x, y tek sayı da olabilir, dizi de. Hücreler arası doğrusal aradeğerleme yapar."""
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    h = map_coordinates(elev,
+                        [np.atleast_1d(y) / res - 0.5, np.atleast_1d(x) / res - 0.5],
+                        order=1, mode="nearest")
+    return h.reshape(x.shape)

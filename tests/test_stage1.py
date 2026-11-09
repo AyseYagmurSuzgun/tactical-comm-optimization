@@ -1,4 +1,3 @@
-"""Çalıştır:  python -m tests.test_stage1"""
 import numpy as np
 from sim.terrain import generate_elevation
 from sim.propagation import los_profile_maps, knife_edge_loss_db, path_loss_map_db

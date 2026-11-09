@@ -10,6 +10,7 @@ plt.xlabel("Mesafe (m)")
 plt.ylabel("Yol kaybı (dB)")
 plt.grid(True, which="both", alpha=0.3)
 plt.legend()
+plt.savefig("report/figures/step2_fspl.png", dpi=150, bbox_inches="tight")
 plt.show()
 
 # Doğrulama

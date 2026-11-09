@@ -1,4 +1,3 @@
-"""Yayılım modelleri."""
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from sim.terrain import sample_height 
@@ -8,7 +7,7 @@ C = 299_792_458.0   # ışık hızı (m/s)
 
 def fspl_db(d_m, f_hz):
     """Serbest uzay yol kaybı (dB)."""
-    d_m = np.maximum(d_m, 1.0)     # sıfıra bölmeyi önle
+    d_m = np.maximum(d_m, 1.0)    
     return 20 * np.log10(4 * np.pi * d_m * f_hz / C)
 
 def log_distance_db(d_m, f_hz, n=2.7, d0=1.0):
